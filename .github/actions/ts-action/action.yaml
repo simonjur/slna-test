@@ -32,6 +32,6 @@ runs:
 # cache
 
     - name: js run
-      uses: ${{ inputs.start }}/dist/
+      uses: ${{ inputs.start }}/dist
       with:
         message: ${{ inputs.args }}
