@@ -28,6 +28,7 @@ runs:
         key: ${{ inputs.run }}-dist-${{ runner.os }}-${{ hashFiles(format('{0}/**', inputs.run)) }}
 
     - name: build action js
+      if: ${{ steps.cache.outputs.cache-hit != 'true' }}
       shell: bash
       working-directory: ${{ inputs.run }}
       run: |
@@ -50,8 +51,3 @@ runs:
           {
             "message": "something something"
           }
-
-#    - name: js run
-#      uses: ${{ inputs.run }}/dist@${{ github.ref_name }}
-#      with:
-#        message: something something
