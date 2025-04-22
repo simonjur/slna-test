@@ -22,10 +22,9 @@ runs:
 
     - name: build action js
       shell: bash
-      working-directory: ${{ inputs.start }}
+      working-directory: ${{ inputs.run }}
       run: |
-        echo "Building action in ${{ inputs.start }}"
-        cd ${{ inputs.start }}
+        echo "Building action in ${{ inputs.run }}"
         npm install
         npm run build
 
