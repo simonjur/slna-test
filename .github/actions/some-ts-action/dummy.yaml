@@ -3,7 +3,7 @@ description: "Some TS action"
 
 runs:
   using: node20
-  main: 'dist/index.js'
+  main: 'index.js'
 
 
 inputs:
