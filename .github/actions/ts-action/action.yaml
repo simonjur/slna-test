@@ -20,6 +20,13 @@ runs:
       with:
         node-version: ${{ inputs.node-version }}
 
+    - name: cache built action
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ inputs.run }}/dist
+        key: ${{ inputs.run }}-dist-${{ runner.os }}-${{ hashFiles(format('{0}/**', inputs.run)) }}
+
     - name: build action js
       shell: bash
       working-directory: ${{ inputs.run }}
@@ -28,7 +35,6 @@ runs:
         npm install
         npm run build
 
-# cache
 
     - name: js run
       uses: ${{ inputs.start }}/dist@${{ github.ref_name }}
