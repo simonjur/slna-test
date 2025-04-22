@@ -37,6 +37,6 @@ runs:
 
 
     - name: js run
-      uses: ${{ inputs.start }}/dist@${{ github.ref_name }}
+      uses: ${{ inputs.run }}/dist@${{ github.ref_name }}
       with:
         message: something something
