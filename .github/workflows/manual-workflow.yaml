@@ -16,5 +16,5 @@ jobs:
         uses: ./.github/actions/ts-action
         with:
           run: ./.github/actions/some-ts-action
-          inputs: |
+          args: |
             message: "Hello world"
