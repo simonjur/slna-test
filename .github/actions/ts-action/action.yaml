@@ -35,8 +35,17 @@ runs:
         npm install
         npm run build
 
-
-    - name: js run
-      uses: ${{ inputs.run }}/dist@${{ github.ref_name }}
+    - uses: jenseng/dynamic-uses@v1
+      name: js run
       with:
-        message: something something
+        # now you can use expressions 🥳
+        uses: ${{ inputs.run }}/dist@${{ github.ref_name }}
+        with: |
+          {
+            "message": "something something"
+          }
+
+#    - name: js run
+#      uses: ${{ inputs.run }}/dist@${{ github.ref_name }}
+#      with:
+#        message: something something
