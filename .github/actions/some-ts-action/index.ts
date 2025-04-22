@@ -1,6 +1,8 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
+//yolo
+
 async function run(): Promise<void> {
     try {
         // Get the input message
