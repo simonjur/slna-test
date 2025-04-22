@@ -32,6 +32,6 @@ runs:
 # cache
 
     - name: js run
-      uses: ${{ inputs.start }}/dist
+      uses: ${{ inputs.start }}/dist@${{ github.ref_name }}
       with:
         message: ${{ inputs.args }}
