@@ -27,6 +27,12 @@ runs:
         path: ${{ inputs.run }}/dist
         key: ${{ inputs.run }}-dist-${{ runner.os }}-${{ hashFiles(format('{0}/**', inputs.run)) }}
 
+    - name: no build action
+      if: ${{ steps.cache.outputs.cache-hit != 'false' }}
+      shell: bash
+      run: |
+        echo "Using cached action in ${{ inputs.run }}"
+
     - name: build action js
       if: ${{ steps.cache.outputs.cache-hit != 'true' }}
       shell: bash
