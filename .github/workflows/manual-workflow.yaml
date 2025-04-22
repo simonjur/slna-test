@@ -1,0 +1,20 @@
+name: Manual workflow test
+
+on:
+  workflow_dispatch:
+    inputs: {}
+  push: {}
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Local TS action
+        uses: ./.github/actions/ts-action
+        with:
+          run: ./.github/actions/some-ts-action
+          inputs: |
+            message: "Hello world"

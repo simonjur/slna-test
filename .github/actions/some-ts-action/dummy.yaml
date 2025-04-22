@@ -1,0 +1,7 @@
+name: some-ts-ation
+description: "Some TS action"
+
+inputs:
+  message:
+    description: "Some message"
+    required: false
