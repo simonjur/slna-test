@@ -45,7 +45,7 @@ runs:
       name: js run
       with:
         # now you can use expressions 🥳
-        uses: ${{ inputs.run }}/dist@${{ github.ref_name }}
+        uses: ${{ inputs.run }}/dist
         with: |
           {
             "message": "something something"
