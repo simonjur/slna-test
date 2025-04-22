@@ -35,6 +35,12 @@ runs:
         npm install
         npm run build
 
+    - name: debug
+      shell: bash
+      working-directory: ${{ inputs.run }}/dist
+      run: |
+        ls -al 
+
     - uses: jenseng/dynamic-uses@v1
       name: js run
       with:
