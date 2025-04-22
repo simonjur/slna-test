@@ -34,4 +34,4 @@ runs:
     - name: js run
       uses: ${{ inputs.start }}/dist@${{ github.ref_name }}
       with:
-        message: ${{ inputs.args }}
+        message: something something
