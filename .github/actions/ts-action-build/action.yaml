@@ -1,0 +1,51 @@
+name: "TS action"
+
+inputs: {}
+
+runs:
+  using: composite
+  steps:
+    - name: install node
+      uses: actions/setup-node@v4
+      with:
+        node-version: node22
+
+    - name: cache built action
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: ./.github/actions/some-ts-action/dist
+        key: ./.github/actions/some-ts-action-dist-${{ runner.os }}-${{ hashFiles(format('{0}/**', './.github/actions/some-ts-action')) }}
+
+    - name: no build action
+      if: ${{ steps.cache.outputs.cache-hit != 'false' }}
+      shell: bash
+      run: |
+        echo "Using cached action in ${{ inputs.run }}"
+
+    - name: build action js
+      if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+      shell: bash
+      working-directory: ./.github/actions/some-ts-action
+      run: |
+        echo "Building action in ./.github/actions/some-ts-action"
+        npm install
+        npm run build
+        cp dist/index.js index.js 
+        cp dummy.yaml action.yaml
+
+    - name: debug
+      shell: bash
+      working-directory: ${{ inputs.run }}/dist
+      run: |
+        ls -al 
+
+#    - uses: jenseng/dynamic-uses@v1
+#      name: js run
+#      with:
+#        # now you can use expressions 🥳
+#        uses: ${{ inputs.run }}/dist
+#        with: |
+#          {
+#            "message": "something something"
+#          }

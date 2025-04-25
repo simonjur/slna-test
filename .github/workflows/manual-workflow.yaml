@@ -12,9 +12,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: prepare local actions
+        uses: ./.github/actions/ts-action-build
+
       - name: Local TS action
-        uses: ./.github/actions/ts-action
+        uses: ./.github/actions/some-ts-action
         with:
-          run: ./.github/actions/some-ts-action
-          args: |
-            message: "Hello world"
+          message: "Hello world"
