@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild index.ts --bundle --platform=node --target=node22 --outdir=dist",
-    "cp": "&& cp -f dummy.yaml dist/action.yaml"
+    "build": "esbuild index.ts --bundle --platform=node --target=node22 --outdir=dist && cp -f dummy.yaml dist/action.yaml"
   },
   "author": "",
   "license": "ISC",

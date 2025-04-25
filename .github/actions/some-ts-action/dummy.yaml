@@ -5,7 +5,8 @@ runs:
   using: node20
   main: 'index.js'
 
-inputs:
-  message:
-    description: "Some message"
-    required: false
+inputs: {}
+#inputs:
+#  message:
+#    description: "Some message"
+#    required: false
