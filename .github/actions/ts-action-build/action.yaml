@@ -8,7 +8,7 @@ runs:
     - name: install node
       uses: actions/setup-node@v4
       with:
-        node-version: node22
+        node-version: 22
 
     - name: cache built action
       id: cache
